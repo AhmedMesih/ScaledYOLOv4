@@ -11,7 +11,7 @@ try:
 except:
     class Mish(nn.Module):  # https://github.com/digantamisra98/Mish
         def forward(self, x):
-            return MishFunction.apply(x)
+            return x * F.softplus(x).tanh()
 
 def autopad(k, p=None):  # kernel, padding
     # Pad to 'same'
